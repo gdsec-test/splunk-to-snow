@@ -1,0 +1,3 @@
+[tool.tartufo]
+repo-path = "."
+exclude-paths = ".tartufo-excludes"

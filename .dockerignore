@@ -1,0 +1,6 @@
+.gitignore
+.venv
+.gitignore
+.pre-commit-config.yaml
+.whitesource
+Makefile
