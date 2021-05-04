@@ -1,4 +1,7 @@
 # splunk-to-snow
+| main |
+| --- |
+| [![Build Workflow](https://github.com/gdcorp-infosec/splunk-to-snow/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/gdcorp-infosec/splunk-to-snow/actions/workflows/build.yml) |
 
 Splunk to ServiceNow App
 
