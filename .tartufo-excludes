@@ -1,4 +1,5 @@
-tartufo.toml
-README.md
+.venv
 .github
 .pre-commit-config.yaml
+tartufo.toml
+README.md

@@ -1,0 +1,262 @@
+<form class="form-horizontal form-complex">
+  <div class="control-group">
+    <label class="control-label">Environment <span class="required">*</span></label>
+    <div class="controls">
+      <label class="radio" for="create_service_now_ticket_environment_dev">
+        <input type="radio" name="action.create_service_now_ticket.param.environment"
+          id="create_service_now_ticket_environment_dev" value="dev" />
+        Dev
+      </label>
+      <label class="radio" for="create_service_now_ticket_environment_prod">
+        <input type="radio" name="action.create_service_now_ticket.param.environment"
+          id="create_service_now_ticket_environment_prod" value="prod" />
+        Production
+      </label>
+      <span class="help-block">
+        Which Snow environment to send the ticket to.
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">Raw<span class="required">*</span></label>
+    <div class="controls">
+      <label class="radio" for="create_service_now_from_raw">
+        <input type="radio" name="action.create_service_now_ticket.param.from_raw" id="create_service_now_from_raw"
+          value=1 />
+        Yes
+      </label>
+      <label class="radio" for="create_service_now_from_raw_unchecked">
+        <input type="radio" name="action.create_service_now_ticket.param.from_raw"
+          id="create_service_now_from_raw_unchecked" value=0 />
+        No
+      </label>
+      <span class="help-block">
+        Whether or not to use the raw data object when replacing parameters (as opposed to extracted fields).
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="create_service_now_ticket_table">Table <span class="required">*</span>
+    </label>
+    <div class="controls">
+      <select name="action.create_service_now_ticket.param.table" id="create_service_now_ticket_table">
+        <option value="u_physical_security">Security</option>
+      </select>
+      <span class="help-block">
+        The table to send the ticket to.
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="create_service_now_ticket_ticket_state">State <span class="required">*</span>
+    </label>
+    <div class="controls">
+      <select name="action.create_service_now_ticket.param.ticket_state" id="create_service_now_ticket_ticket_state">
+        <option value="New">New</option>
+        <option value="Closed">Closed</option>
+      </select>
+      <span class="help-block">
+        Initial state of the ticket.
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="create_service_now_ticket_ticket_title">Title <span class="required">*</span>
+    </label>
+    <div class="controls">
+      <input type="text" name="action.create_service_now_ticket.param.ticket_title"
+        id="create_service_now_ticket_ticket_title" />
+      <span class="help-block">
+        Title of the title.
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="create_service_now_ticket_ticket_impact">Impact <span class="required">*</span>
+    </label>
+    <div class="controls">
+      <select name="action.create_service_now_ticket.param.ticket_impact" id="create_service_now_ticket_ticket_impact">
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+      </select>
+      <span class="help-block">
+        Ticket impact.
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="create_service_now_ticket_ticket_urgency">Urgency <span class="required">*</span>
+    </label>
+    <div class="controls">
+      <select name="action.create_service_now_ticket.param.ticket_urgency"
+        id="create_service_now_ticket_ticket_urgency">
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+      </select>
+      <span class="help-block">
+        Ticket urgency.
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="create_service_now_ticket_ticket_summary">Summary
+    </label>
+    <div class="controls">
+      <input type="text" name="action.create_service_now_ticket.param.ticket_summary"
+        id="create_service_now_ticket_ticket_summary" />
+      <span class="help-block">
+        The main body text field of the ticket.
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="create_service_now_ticket_ticket_assignment_group">Assignment Group
+    </label>
+    <div class="controls">
+      <input type="text" name="action.create_service_now_ticket.param.ticket_assignment_group"
+        id="create_service_now_ticket_ticket_assignment_group" />
+      <span class="help-block">
+        ID of the assignment group of the ticket.
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="create_service_now_ticket_ticket_category">Category
+    </label>
+    <div class="controls">
+      <input type="text" name="action.create_service_now_ticket.param.ticket_category"
+        id="create_service_now_ticket_ticket_category" />
+      <span class="help-block">
+        Category of the ticket. CS
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="create_service_now_ticket_ticket_sub_category">Sub-Category
+    </label>
+    <div class="controls">
+      <input type="text" name="action.create_service_now_ticket.param.ticket_sub_category"
+        id="create_service_now_ticket_ticket_sub_category" />
+      <span class="help-block">
+        Sub-category of the ticket. CS
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="create_service_now_ticket_ticket_detection_method">Detection Method
+    </label>
+    <div class="controls">
+      <input type="text" name="action.create_service_now_ticket.param.ticket_detection_method"
+        id="create_service_now_ticket_ticket_detection_method" />
+      <span class="help-block">
+        Detection method of the ticket.
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="create_service_now_ticket_ticket_detect_time">Detect Time
+    </label>
+    <div class="controls">
+      <input type="text" name="action.create_service_now_ticket.param.ticket_detect_time"
+        id="create_service_now_ticket_ticket_detect_time" />
+      <span class="help-block">
+        Specify an event field or "now".
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="create_service_now_ticket_ticket_event_time">Event Time
+    </label>
+    <div class="controls">
+      <input type="text" name="action.create_service_now_ticket.param.ticket_event_time"
+        id="create_service_now_ticket_ticket_event_time" />
+      <span class="help-block">
+        Specify an event field or "now".
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">DSR?<span class="required">*</span></label>
+    <div class="controls">
+      <label class="radio" for="create_service_now_ticket_dsr_checked">
+        <input type="radio" name="action.create_service_now_ticket.param.ticket_dsr"
+          id="create_service_now_ticket_dsr_checked" value="1" />
+        Yes
+      </label>
+      <label class="radio" for="create_service_now_ticket_dsr_unchecked">
+        <input type="radio" name="action.create_service_now_ticket.param.ticket_dsr"
+          id="create_service_now_ticket_dsr_unchecked" value="0" />
+        No
+      </label>
+    </div>
+  </div>
+
+
+  <div class="control-group">
+    <label class="control-label" for="create_service_now_ticket_roll_up_duration">Roll Up Duration</label>
+    <div class="controls">
+      <input type="text" name="action.create_service_now_ticket.param.roll_up_duration"
+        id="create_service_now_ticket_roll_up_duration" />
+      <span class="help-block">
+        How long in seconds between events to aggregate.
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">Rolling?<span class="required">*</span></label>
+    <div class="controls">
+      <label class="radio" for="create_service_now_ticket_roll_up_rolling_checked">
+        <input type="radio" name="action.create_service_now_ticket.param.roll_up_rolling"
+          id="create_service_now_ticket_roll_up_rolling_checked" value="1" />
+        Yes
+      </label>
+      <label class="radio" for="create_service_now_ticket_roll_up_rolling_unchecked">
+        <input type="radio" name="action.create_service_now_ticket.param.roll_up_rolling"
+          id="create_service_now_ticket_roll_up_rolling_unchecked" value="0" />
+        No
+      </label>
+      <span class="help-block">
+        If Roll Up Time is defined, resets duration based on first event (No) or most recent (Yes).
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">Reopen?<span class="required">*</span></label>
+    <div class="controls">
+      <label class="radio" for="create_service_now_ticket_match_roll_up_reopen">
+        <input type="radio" name="action.create_service_now_ticket.param.roll_up_reopen"
+          id="create_service_now_ticket_roll_up_reopen_checked" value="1" />
+        Yes
+      </label>
+      <label class="radio" for="create_service_now_ticket_roll_up_reopen_unchecked">
+        <input type="radio" name="action.create_service_now_ticket.param.roll_up_reopen"
+          id="create_service_now_ticket_roll_up_reopen_unchecked" value="0" />
+        No
+      </label>
+      <span class="help-block">
+        If Roll Up Time is defined, whether or not to re-open a previously closed ticket if within the match timeframe.
+      </span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="create_service_now_ticket_roll_up_match_fields">Match Field(s)
+    </label>
+    <div class="controls">
+      <input type="text" name="action.create_service_now_ticket.param.roll_up_match_fields"
+        id="create_service_now_ticket_roll_up_match_fields" />
+      <span class="help-block">
+        Modify roll up to occur only when all of these fields match across events.
+      </span>
+    </div>
+  </div>
+
+  <div>
+    Hint: You can used "{{ some.field.in.event }}" to include data from the
+    event in the below text fields. DO NOT USE "{{}}" FOR Detect Time OR Event
+    Time. Use "\n" for newlines.
+    <br \ />
+    CS = Case-Sensitive
+  </div>
+</form>

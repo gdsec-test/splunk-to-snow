@@ -17,4 +17,4 @@ WORKDIR /app
 
 COPY . .
 
-CMD splunk-appinspect inspect ./src
+CMD splunk-appinspect inspect splunk_to_snow.spl

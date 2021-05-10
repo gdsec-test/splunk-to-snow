@@ -3,4 +3,5 @@
 .gitignore
 .pre-commit-config.yaml
 .whitesource
+src/
 Makefile

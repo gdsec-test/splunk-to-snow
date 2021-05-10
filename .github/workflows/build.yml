@@ -27,12 +27,26 @@ jobs:
         with:
           github_token: ${{ secrets.REPO_CLONE_TOKEN }}
 
-  # app-validate:
-  #   needs: tartufo-job
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout this repo on to a job runner.
-  #       uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # Checkout this repository https://github.com/actions/checkout/commits/main
-  #     - name: Validate the app
-  #       run: |
-  #         make validate
+  unit-test:
+    needs: tartufo-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo on to a job runner.
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # Checkout this repository https://github.com/actions/checkout/commits/main
+      - name: Set up Python 3.8
+        uses: actions/setup-python@41b7212b1668f5de9d65e9c82aa777e6bbedb3a8
+        with:
+          python-version: 3.8
+      - name: Run unit tests
+        run: |
+          make test
+
+  app-validate:
+    needs: unit-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo on to a job runner.
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # Checkout this repository https://github.com/actions/checkout/commits/main
+      - name: Validate the app
+        run: |
+          make validate
