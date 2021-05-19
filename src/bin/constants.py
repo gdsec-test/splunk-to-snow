@@ -2,6 +2,20 @@ APPNAMESPACE = "splunk_to_snow"
 
 STATE_COLLECTION_NAME = "gd_splunk_to_snow"
 
+BASE_DOMAIN = "https://godaddy"
+
+SERVICENOW_REQUEST_HEADERS = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+PARAMETER_REGEX = r"\{\{\S+?\}\}"
+SNOW_TIME_FORMAT = "%Y-%m-%d %H:%M:%S"
+
+#####################
+## Physical Security
+#####################
+
 # Tables added here should be added to /default/data/ui/alerts/create_service_now_ticket.html as well
 CONFIG_TO_TABLE_FIELDS = {
     "u_physical_security": {
@@ -24,14 +38,6 @@ CONFIG_TO_TABLE_FIELDS = {
     }
 }
 
-BASE_DOMAIN = "https://godaddy"
-
-SERVICENOW_REQUEST_HEADERS = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-
 MANDATORY_CONFIG = [
     "environment",
     "from_raw",
@@ -44,9 +50,6 @@ MANDATORY_CONFIG = [
 ]
 
 
-PARAMETER_REGEX = r"\{\{\S+?\}\}"
-
-
 VALUE_MAPS = {
     "ticket_assignment_group": {
         # Intrusion Prevention Engineering assignment group ID
@@ -55,4 +58,25 @@ VALUE_MAPS = {
     }
 }
 
-SNOW_TIME_FORMAT = "%Y-%m-%d %H:%M:%S"
+
+#####################
+## SIR
+#####################
+
+SIR_TABLE_MANDATORY_FIELDS = ["short_description", "assignment_group"]
+
+SIR_TABLE_FIELDS = {
+    "string": [
+        "short_description",
+        "assignment_group",
+        "category",
+        "contact_type",
+        "description",
+        "priority",
+        "severity",
+        "state",
+        "subcategory",
+    ]
+}
+
+SIR_TABLE_NAME = "sn_si_incident"

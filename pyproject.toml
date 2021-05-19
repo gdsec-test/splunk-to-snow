@@ -6,3 +6,6 @@ exclude-signatures = [
     "c73ad0238726289b6efaeada6f7f98a33282556da341a1b01ef6ef862fd18976",
     "14a46828c339a7d4e9f35a40d49c8144f76b2b708010a00eeb5e0bb0459dff56"
 ]
+
+[tool.black]
+line-length = 88

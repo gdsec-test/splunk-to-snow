@@ -1,0 +1,213 @@
+<form class="form-horizontal form-complex">
+    <div>
+        Alert to create tickets in <strong>"sn_si_incident"</strong> table within ServiceNow.
+    </div>
+    <div>
+        <strong>Some Tips:</strong>
+        <ul>
+            <li>Some fields in this form may have a default value pre-populated.</li>
+            <li>All text fields are <strong>case sensitive</strong>.</li>
+            <li>You can use <code>{{some.field.in.event}}</code> to include data from the event.</li>
+            <li>Use <code>\n</code> for newlines.</li>
+            <li>Please contact <strong>#product-security</strong> in Slack for any assistance.</li>
+        </ul>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Environment <span class="required">*</span></label>
+        <div class="controls">
+            <label class="radio" for="env_dev">
+                <input type="radio" name="action.create_sir_ticket.param.environment" id="env_dev" value="dev" />
+                Dev
+            </label>
+            <label class="radio" for="env_prod">
+                <input type="radio" name="action.create_sir_ticket.param.environment" id="env_prod" value="prod" />
+                Production
+            </label>
+            <span class="help-block">
+                Destination ServiceNow environment.<br /> Default: "Dev"
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Raw<span class="required">*</span></label>
+        <div class="controls">
+            <label class="radio" for="from_raw">
+                <input type="radio" name="action.create_sir_ticket.param.from_raw" id="from_raw" value=1 />
+                Yes
+            </label>
+            <label class="radio" for="from_raw_unchecked">
+                <input type="radio" name="action.create_sir_ticket.param.from_raw" id="from_raw_unchecked" value=0 />
+                No
+            </label>
+            <span class="help-block">
+                Whether or not to use the raw data object when replacing parameters (as opposed to extracted
+                fields).<br />
+                Default: "No"
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="state">State
+        </label>
+        <div class="controls">
+            <select name="action.create_sir_ticket.param.state" id="state">
+                <option value="10">Draft (10)</option>
+            </select>
+            <span class="help-block">
+                Initial state of the ticket. <br />Default: "Draft (10)"
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="short_description">Short Description <span class="required">*</span>
+        </label>
+        <div class="controls">
+            <input type="text" name="action.create_sir_ticket.param.short_description" id="short_description" />
+            <span class="help-block">
+                Short Description / Title of the ticket.
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="severity">Severity
+        </label>
+        <div class="controls">
+            <select name="action.create_sir_ticket.param.severity" id="severity">
+                <option value="1">High (1)</option>
+                <option value="2">Medium (2)</option>
+                <option value="3">Low (3)</option>
+            </select>
+            <span class="help-block">
+                Ticket Severity. <br />Default: "Medium (2)"
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="priority">Priority
+        </label>
+        <div class="controls">
+            <select name="action.create_sir_ticket.param.priority" id="priority">
+                <option value="1">Critical (1)</option>
+                <option value="2">High (2)</option>
+                <option value="3">Moderate (3)</option>
+                <option value="4">Low (4)</option>
+                <option value="5">Minor (5)</option>
+            </select>
+            <span class="help-block">
+                Ticket priority. <br />Default: "Low (4)"
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="description">Description
+        </label>
+        <div class="controls">
+            <textarea rows="4" type="text" name="action.create_sir_ticket.param.description"
+                id="description"></textarea>
+            <span class="help-block">
+                The main body text field of the ticket.
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="assignment_group">Assignment Group <span class="required">*</span></label>
+        <div class="controls">
+            <input type="text" name="action.create_sir_ticket.param.assignment_group" id="assignment_group" />
+            <span class="help-block">
+                ID of the assignment group of the ticket.
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="category">Category
+        </label>
+        <div class="controls">
+            <input type="text" name="action.create_sir_ticket.param.category" id="category" />
+            <span class="help-block">
+                Category of the ticket. <br />Default: "Unauthorized access"
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="subcategory">Sub Category</label>
+        <div class="controls">
+            <select name="action.create_sir_ticket.param.subcategory" id="subcategory">
+                <option value="">-- None --</option>
+                <option value="1">Abuse of access privileges (1)</option>
+                <option value="3">Brute force password cracking attempts (3)</option>
+                <option value="30">Stolen password(s) (30)</option>
+                <option value="33">Unauthorized access to data (33)</option>
+                <option value="34">Unauthorized login attemtps (34)</option>
+            </select>
+            <span class="help-block">
+                Sub-category of the ticket. <br />Default: "-- None --"
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="contact_type">Contact Type
+        </label>
+        <div class="controls">
+            <input type="text" name="action.create_sir_ticket.param.contact_type" id="contact_type" />
+            <span class="help-block">
+                Contact Type of the ticket. <br />Default: "siem"
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="roll_up_duration">Roll Up Duration</label>
+        <div class="controls">
+            <input type="text" name="action.create_sir_ticket.param.roll_up_duration" id="roll_up_duration" />
+            <span class="help-block">
+                How long in seconds between events to aggregate.
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Rolling?<span class="required">*</span></label>
+        <div class="controls">
+            <label class="radio" for="roll_up_rolling_checked">
+                <input type="radio" name="action.create_sir_ticket.param.roll_up_rolling" id="roll_up_rolling_checked"
+                    value="1" />
+                Yes
+            </label>
+            <label class="radio" for="roll_up_rolling_unchecked">
+                <input type="radio" name="action.create_sir_ticket.param.roll_up_rolling" id="roll_up_rolling_unchecked"
+                    value="0" />
+                No
+            </label>
+            <span class="help-block">
+                If Roll Up Duration is defined, resets duration based on first event (No) or most recent (Yes).
+                <br />Default: "No"
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Reopen?<span class="required">*</span></label>
+        <div class="controls">
+            <label class="radio" for="roll_up_reopen_checked">
+                <input type="radio" name="action.create_sir_ticket.param.roll_up_reopen" id="roll_up_reopen_checked"
+                    value="1" />
+                Yes
+            </label>
+            <label class="radio" for="roll_up_reopen_unchecked">
+                <input type="radio" name="action.create_sir_ticket.param.roll_up_reopen" id="roll_up_reopen_unchecked"
+                    value="0" />
+                No
+            </label>
+            <span class="help-block">
+                If Roll Up Duration is defined, whether or not to put ticket back to "Draft" state. <br />Default: "No"
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="roll_up_match_fields">Match Field(s)
+        </label>
+        <div class="controls">
+            <input type="text" name="action.create_sir_ticket.param.roll_up_match_fields" id="roll_up_match_fields" />
+            <span class="help-block">
+                Modify roll up to occur only when all of these fields match across events. CSV format.
+            </span>
+        </div>
+    </div>
+</form>

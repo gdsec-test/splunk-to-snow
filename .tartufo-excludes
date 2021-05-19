@@ -1,5 +1,5 @@
 .venv
 .github
 .pre-commit-config.yaml
-tartufo.toml
+pyproject.toml
 README.md

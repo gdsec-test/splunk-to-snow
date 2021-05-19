@@ -78,3 +78,20 @@ param.ticket_dsr = <string>
 param.ticket_detection_method = <string>
 * Detection method field in SNOW
 * Default = none
+
+[create_sir_ticket]
+param.environment = <string>
+param.from_raw = <string>
+param.state = <string>
+param.short_description = <string>
+param.severity = <string>
+param.priority = <string>
+param.description = <string>
+param.assignment_group = <string>
+param.category = <string>
+param.subcategory = <string>
+param.contact_type = <string>
+param.roll_up_duration = <string>
+param.roll_up_rolling = <string>
+param.roll_up_reopen = <string>
+param.roll_up_match_fields = <string>
