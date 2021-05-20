@@ -66,7 +66,7 @@ class SplunkClient(object):
         fields = ""
 
         for field in roll_up_fields.split(","):
-            fields += self.result[field.strip()]
+            fields += self.result.get(field.strip(), "")
 
         return utils.hash(f"{short_desc}{fields}".encode())
 
