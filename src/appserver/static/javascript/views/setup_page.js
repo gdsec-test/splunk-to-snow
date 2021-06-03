@@ -5,6 +5,7 @@ import * as StoragePasswords from "./storage_passwords.js";
 
 const SECRET_REALM = "splunk_to_snow_realm";
 const SECRET_NAME = "service_account";
+const SECRET_DELIMITER = ":::";
 
 export async function perform(splunk_js_sdk, setup_options) {
   var app_name = "splunk_to_snow";
@@ -29,7 +30,7 @@ export async function perform(splunk_js_sdk, setup_options) {
       splunk_js_sdk_service,
       SECRET_REALM,
       SECRET_NAME,
-      `${username},${password}`
+      `${username}${SECRET_DELIMITER}${password}`
     );
 
     // Completes the setup, by access the app.conf's [install]

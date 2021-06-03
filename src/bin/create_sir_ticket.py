@@ -12,6 +12,8 @@ from constants import (
     APPNAMESPACE,
     BASE_DOMAIN,
     PARAMETER_REGEX,
+    SECRET_DELIMITER,
+    SECRET_NAME,
     SERVICENOW_REQUEST_HEADERS,
     SIR_TABLE_FIELDS,
     SIR_TABLE_MANDATORY_FIELDS,
@@ -40,17 +42,23 @@ class SplunkClient(object):
         Get ServiceNow Credentials from Splunk entities store.
         """
         try:
-            # list all credentials
+            # list all credentials.
+            # WARNING: Credentials are sorted at insertion time with username.
             entities = entity.getEntities(
                 ["admin", "passwords"],
                 namespace=self.app_namespace,
                 owner="nobody",
                 sessionKey=self.session_key,
             )
-            # return first set of credentials
-            [username, password] = entities.values()[0]["clear_password"].split(",")
 
-            return username, password
+            for e in entities.values():
+                if e["username"] == SECRET_NAME:
+                    username, password = e["clear_password"].split(SECRET_DELIMITER)
+                    return username, password
+
+            raise Exception(
+                f"Secret {SECRET_NAME} not found within {len(entities.values())} secrets. Please Set up credentials first."
+            )
         except Exception as e:
             raise Exception(
                 f"Could not get {self.app_namespace} credentials from splunk. Error: {str(e)}"

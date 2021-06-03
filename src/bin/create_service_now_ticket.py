@@ -10,6 +10,8 @@ from constants import (
     BASE_DOMAIN,
     PARAMETER_REGEX,
     SERVICENOW_REQUEST_HEADERS,
+    SECRET_NAME,
+    SECRET_DELIMITER,
 )
 from dateutil.parser import parse as parse_date
 from datetime import datetime
@@ -35,21 +37,27 @@ def getCredentials(sessionKey):
     From: https://dev.splunk.com/enterprise/docs/developapps/setuppage/setupxmlexamples/
     """
     try:
-        # list all credentials
+        # list all credentials.
+        # WARNING: Credentials are sorted at insertion time with username.
         entities = entity.getEntities(
             ["admin", "passwords"],
             namespace=APPNAMESPACE,
             owner="nobody",
             sessionKey=sessionKey,
         )
+
+        for e in entities.values():
+            if e["username"] == SECRET_NAME:
+                username, password = e["clear_password"].split(SECRET_DELIMITER)
+                return username, password
+
+        raise Exception(
+            f"Secret {SECRET_NAME} not found within {len(entities.values())} secrets. Please Set up credentials first."
+        )
     except Exception as e:
         raise Exception(
             f"Could not get {APPNAMESPACE} credentials from splunk. Error: {str(e)}"
         )
-
-    # return first set of credentials
-    [username, password] = entities.values()[0]["clear_password"].split(",")
-    return username, password
 
 
 def exception_logging(exctype, value, tb):

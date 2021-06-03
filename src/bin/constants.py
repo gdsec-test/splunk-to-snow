@@ -1,5 +1,9 @@
 APPNAMESPACE = "splunk_to_snow"
 
+# Need to match what is being saved in JS.
+SECRET_NAME = "service_account"
+SECRET_DELIMITER = ":::"
+
 STATE_COLLECTION_NAME = "gd_splunk_to_snow"
 
 BASE_DOMAIN = "https://godaddy"
