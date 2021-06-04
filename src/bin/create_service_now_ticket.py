@@ -109,10 +109,10 @@ def construct_key(configuration, result):
             match_field_values += result[field]
 
         return kv_store.hash_key_meta(
-            b"{}{}".format(configuration["ticket_title"], match_field_values)
+            f'{configuration["ticket_title"]}{match_field_values}'.encode()
         )
     else:
-        return kv_store.hash_key_meta(b"{}".format(configuration["ticket_title"]))
+        return kv_store.hash_key_meta(f'{configuration["ticket_title"]}'.encode())
 
 
 def update_existing_ticket(ticket_id):
