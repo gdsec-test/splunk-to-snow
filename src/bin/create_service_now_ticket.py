@@ -12,6 +12,7 @@ from constants import (
     SERVICENOW_REQUEST_HEADERS,
     SECRET_NAME,
     SECRET_DELIMITER,
+    SECRET_REALM,
 )
 from dateutil.parser import parse as parse_date
 from datetime import datetime
@@ -47,16 +48,16 @@ def getCredentials(sessionKey):
         )
 
         for e in entities.values():
-            if e["username"] == SECRET_NAME:
+            if e["realm"] == SECRET_REALM and e["username"] == SECRET_NAME:
                 username, password = e["clear_password"].split(SECRET_DELIMITER)
                 return username, password
 
         raise Exception(
-            f"Secret {SECRET_NAME} not found within {len(entities.values())} secrets. Please Set up credentials first."
+            f"Secret {APPNAMESPACE} {SECRET_REALM} {SECRET_NAME} not found within {len(entities.values())} secrets. Please Set up credential first."
         )
     except Exception as e:
         raise Exception(
-            f"Could not get {APPNAMESPACE} credentials from splunk. Error: {str(e)}"
+            f"Could not get {APPNAMESPACE} {SECRET_REALM} {SECRET_NAME} credential from splunk. Error: {str(e)}"
         )
 
 

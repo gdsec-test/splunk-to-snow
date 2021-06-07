@@ -14,6 +14,7 @@ from constants import (
     PARAMETER_REGEX,
     SECRET_DELIMITER,
     SECRET_NAME,
+    SECRET_REALM,
     SERVICENOW_REQUEST_HEADERS,
     SIR_TABLE_FIELDS,
     SIR_TABLE_MANDATORY_FIELDS,
@@ -52,16 +53,16 @@ class SplunkClient(object):
             )
 
             for e in entities.values():
-                if e["username"] == SECRET_NAME:
+                if e["realm"] == SECRET_REALM and e["username"] == SECRET_NAME:
                     username, password = e["clear_password"].split(SECRET_DELIMITER)
                     return username, password
 
             raise Exception(
-                f"Secret {SECRET_NAME} not found within {len(entities.values())} secrets. Please Set up credentials first."
+                f"Secret {self.app_namespace} {SECRET_REALM} {SECRET_NAME} not found within {len(entities.values())} secrets. Please Set up credential first."
             )
         except Exception as e:
             raise Exception(
-                f"Could not get {self.app_namespace} credentials from splunk. Error: {str(e)}"
+                f"Could not get {self.app_namespace} {SECRET_REALM} {SECRET_NAME} credential from splunk. Error: {str(e)}"
             )
 
     def _get_kv_hash(self):
