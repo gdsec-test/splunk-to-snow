@@ -7,7 +7,7 @@ RUN apt-get update && \
     libxml2-dev \
     libxslt-dev \
     lib32z1-dev \
-    python-lxml \
+    python3-lxml \
     libmagic-dev
 
 RUN pip install --upgrade pip && \

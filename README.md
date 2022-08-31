@@ -33,7 +33,7 @@ $ make test
 
 ```
 
-3. Validate the app.
+3. [Validate](https://dev.splunk.com/enterprise/docs/developapps/testvalidate/appinspect/useappinspectclitool/#Validate-a-Splunk-app) the app.
 
 ```bash
 
