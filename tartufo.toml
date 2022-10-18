@@ -1,0 +1,17 @@
+[tool.tartufo]
+cleanup = true
+entropy = true
+json = false
+regex = true
+repo-path = "."
+
+exclude-path-patterns = [
+    {path-pattern = 'tartufo\.toml', reason="tartufo file"},
+    {path-pattern = 'pyproject\.toml', reason="Old tartufo file"},
+]
+exclude-entropy-patterns = [
+    {path-pattern = '\.github/workflows/.*?\.y[a]?ml', pattern = 'uses: .*?/.*?@[a-f\d]{40}', reason = "GitHub Action Hash"},
+    {path-pattern = 'README\.md', pattern = '253D70e5dc8413d41094f8b076666144b0e5', scope='word', reason = "ENG-Product Security group id"},
+    {path-pattern = 'src/.*\.py', pattern = '2a9cd2534f19fe00dc4927201310c76e', scope='word', reason = "ENG-IPE group id"},
+    {path-pattern = 'src/.*\.py', pattern = '6918525edb696380f1bd5434ce96199e', scope='word', reason = "OPS-GCSO group id"},
+]
