@@ -89,6 +89,44 @@ Splunk alert input sample:
     }
 ```
 
+## Publishing to Splunk 🚢
+
+**Remember, this process could take SEVERAL DAYS.**
+
+1. Make sure you are on the latest release code.
+2. Run following to generate latest release of `splunk_to_snow.spl`.
+   ```bash
+   $ make package
+   ```
+3. Navigate to https://splunkcommunities.force.com/customer/s/list-views/cases
+4. Click `Create Case`
+5. Select `Cloud App Request` radio button, then hit `Next`.
+6. For `Cloud Maintenance Request`, select `Upgrade`.
+7. Skip `Select Apps or Add-ons`
+8. For `Select Cloud Stack`, select `godaddy`.
+9. For `Expected Install Location`:
+   - Open [Splunk](https://godaddy.splunkcloud.com/en-US/app/search/search)
+   - Click `Support & Services` right top of the web.
+   - Click `About`.
+   - Find which `Experience`, current cloud is on.
+   - Select correct location back in the support portal form.
+     - ex) `Victoria: Search Head (SH)`
+10. For `Maintenance Window`, write something like:
+    - ex) `Please deploy on the soonest day available between 7PM and 5AM Pacific Time.`
+    - This may require splunk cloud to be down/restarted during the install.
+11. For `Description`, write something like:
+    - ex) `Would like to upgrade our custom app "Splunk to Snow" to a new version of v2.2.1, spl file will be attached.`
+      - You will add attachment after you hit "Submit".
+12. For `Splunk Support access to your company data`, select `Allow`
+13. For `Add Collaborators`, select `Open search dialog`. Then, add product security members to get CC-ed.
+14. Review the fields & Click `Submit`.
+15. Once case is created, click `Add attachments`.
+    - Browse then add the latest `splunk_to_snow.spl` you generated from Step 2.
+16. Click `Upload`.
+17. Verify your ticket has been appropriately created & attachment was added.
+    - https://splunkcommunities.force.com/customer/s/list-views/cases
+18. Just make sure to check your email(s) for any required conversation.
+
 # Integration Testing Strategy 🐛
 
 ## Pre-req
