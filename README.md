@@ -322,3 +322,11 @@ Continue to next test case before 600 seconds is up.
 Observe new ticket gets created
 Create one more alert after 60 seconds.
 Observe new alert rolls up, not create a new ticket.
+
+## FAQ
+
+### How do I check logs?
+
+```sql
+index=_internal sourcetype=splunkd component=sendmodalert action="create_sir_ticket"
+```
