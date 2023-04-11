@@ -50,6 +50,7 @@ class SplunkClient(object):
                 namespace=self.app_namespace,
                 owner="nobody",
                 sessionKey=self.session_key,
+                count="-1",
             )
 
             for e in entities.values():
