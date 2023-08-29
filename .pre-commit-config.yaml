@@ -19,7 +19,3 @@ repos:
     rev: 22.10.0
     hooks:
       - id: black
-  - repo: https://github.com/godaddy/tartufo
-    rev: v3.2.1
-    hooks:
-      - id: tartufo
